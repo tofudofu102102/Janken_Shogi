@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ジャンケン将棋</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #f8f8f8;
+    }
+    .container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+     }
+
+    #board {
+      display: grid;
+      grid-template-columns: repeat(5, 60px);
+      grid-template-rows: repeat(5, 60px);
+      width: 300px;
+      height: 300px;
+      gap: 2px;
+      margin-bottom: 10px;
+    }
+    .cell {
+      background-color: #eee;
+      border: 1px solid #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+    .piece {
+      width: 100%;
+      height: 100%;
+    }
+    .player { color: blue; }
+    .cpu { color: red; }
+    .selected { outline: 2px solid orange; }
+    #turn-indicator,
+    #action-counter {
+      font-size: 32px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>ジャンケン将棋</h1>
+    <div id="turn-indicator">ターン終了まで：10秒</div>
+    <div id="action-counter">行動回数：5</div>
+    <div id="board"></div>
+    <div id="rules" style="margin-top: 20px; font-size: 14px; line-height: 1.6;">
+      <strong>ルール説明：</strong><br>
+      プレイヤーとCPUは5×5の盤面で手コマを動かして対戦します。<br>
+      手コマは毎ターン指の数が増減し、0(✊)、2(✌️)、5(✋)が通常のジャンケンルールで勝負します。<br>
+      指の数が 1(☝️)、3(🤟)、4(4️⃣) の手は全ての手に負けます。<br>
+      攻撃時に相手に勝てばそのマスに移動、負ければ移動できません。あいこなら両方消滅します。
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
