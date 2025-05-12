@@ -1,0 +1,2 @@
+# Janken_Shogi
+app
